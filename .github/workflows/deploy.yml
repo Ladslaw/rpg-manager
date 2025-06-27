@@ -32,14 +32,14 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
-        # ATENÇÃO: Caminho do cache ajustado para a subpasta
-        cache-dependency-path: rpg-ficha-manager/package-lock.json
+        cache: 'pnpm' # Alterado para pnpm
+        # ATENÇÃO: Caminho do cache ajustado para pnpm-lock.yaml
+        cache-dependency-path: rpg-ficha-manager/pnpm-lock.yaml
         
     - name: Instalar dependências
       run: |
         cd rpg-ficha-manager
-        npm ci
+        pnpm install # Alterado para pnpm install
         
     - name: Build da aplicação
       run: |
