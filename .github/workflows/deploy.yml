@@ -33,6 +33,7 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
+        # ATENÇÃO: Caminho do cache ajustado para a subpasta
         cache-dependency-path: rpg-ficha-manager/package-lock.json
         
     - name: Instalar dependências
@@ -46,7 +47,7 @@ jobs:
         npm run build
         
     - name: Upload do artifact para Pages
-      uses: actions/upload-pages-artifact@v3 # <--- LINHA ATUALIZADA AQUI
+      uses: actions/upload-pages-artifact@v3
       with:
         path: rpg-ficha-manager/dist
 
