@@ -1,57 +1,47 @@
 name: Deploy RPG Manager to GitHub Pages
 
 on:
-  # Executa quando há push na branch main
   push:
     branches: [ main ]
-  
-  # Permite execução manual do workflow
   workflow_dispatch:
 
-# Define permissões necessárias para o GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Evita execuções concorrentes
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Job de build da aplicação
   build:
     runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout do código
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-        # pnpm-version: 'latest' # <--- ADICIONE ESTA LINHA
-        cache-dependency-path: rpg-ficha-manager/package-lock.json
-        
-    - name: Instalar dependências
-      run: |
-        cd rpg-ficha-manager
-        npm install
-        
-    - name: Build da aplicação
-      run: |
-        cd rpg-ficha-manager
-        npm run build
-        
-    - name: Upload do artifact para Pages
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: rpg-ficha-manager/dist
 
-  # Job de deploy no GitHub Pages
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: rpg-ficha-manager/package-lock.json
+
+      - name: Instalar dependências
+        working-directory: rpg-ficha-manager
+        run: npm install
+
+      - name: Build da aplicação
+        working-directory: rpg-ficha-manager
+        run: npx vite build
+
+      - name: Upload do artifact para Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: rpg-ficha-manager/dist
+
   deploy:
     environment:
       name: github-pages
