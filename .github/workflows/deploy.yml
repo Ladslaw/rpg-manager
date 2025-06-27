@@ -32,14 +32,14 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'pnpm' # Alterado para pnpm
-        # ATENÇÃO: Caminho do cache ajustado para pnpm-lock.yaml
+        cache: 'pnpm'
+        pnpm-version: 'latest' # <--- ADICIONE ESTA LINHA
         cache-dependency-path: rpg-ficha-manager/pnpm-lock.yaml
         
     - name: Instalar dependências
       run: |
         cd rpg-ficha-manager
-        pnpm install # Alterado para pnpm install
+        pnpm install
         
     - name: Build da aplicação
       run: |
