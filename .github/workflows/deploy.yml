@@ -46,7 +46,7 @@ jobs:
         npm run build
         
     - name: Upload do artifact para Pages
-      uses: actions/upload-pages-artifact@v2
+      uses: actions/upload-pages-artifact@v3 # <--- LINHA ATUALIZADA AQUI
       with:
         path: rpg-ficha-manager/dist
 
@@ -61,4 +61,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
