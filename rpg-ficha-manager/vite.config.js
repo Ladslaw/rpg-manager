@@ -8,8 +8,8 @@ export default defineConfig({
   
   // ⚠️ IMPORTANTE: Substitua 'nome-do-seu-repositorio' pelo nome real do seu repositório GitHub
   // Exemplo: se seu repo é 'meu-rpg-manager', use: base: '/meu-rpg-manager/'
-  base: '/nome-do-seu-repositorio/',
-  
+  base: 
+'/rpg-manager/',  
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

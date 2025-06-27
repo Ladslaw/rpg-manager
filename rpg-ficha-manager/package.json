@@ -4,13 +4,21 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Gerenciador de fichas para RPG - Tormenta 20 & D&D 5e",
-  "keywords": ["rpg", "tormenta20", "dnd5e", "ficha", "personagem", "npc", "campanha"],
+  "keywords": [
+    "rpg",
+    "tormenta20",
+    "dnd5e",
+    "ficha",
+    "personagem",
+    "npc",
+    "campanha"
+  ],
   "author": "Seu Nome",
   "license": "MIT",
-  "homepage": "https://seu-usuario.github.io/nome-do-repo/",
+  "homepage": "https://Ladslaw.github.io/rpg-manager/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seu-usuario/nome-do-repo.git"
+    "url": "https://github.com/Ladslaw/rpg-manager.git"
   },
   "scripts": {
     "dev": "vite",
@@ -49,6 +57,7 @@
     "gh-pages": "^6.1.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
+    "terser": "^5.43.1",
     "vite": "^5.0.0"
   },
   "engines": {
@@ -56,4 +65,3 @@
     "npm": ">=8.0.0"
   }
 }
-
